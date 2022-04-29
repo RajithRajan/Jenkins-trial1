@@ -28,12 +28,12 @@ pipeline {
 
     stage('Trigger') {
       steps {
-        build 'JobTrigger/Deploy'
+        build 'JobTrigger/Deploy', parameters [string(name: 'DEPLOY_TO', value: "${params.DEPLOY_TO}")]
       }
     }
 
   }
   parameters {
-    choice(name: 'DEPLOY_TO:', choices: ['Dev', 'ST', 'Prod'], description: 'Choose Enviornment')
+    choice(name: 'DEPLOY_TO', choices: ['Dev', 'ST', 'Prod'], description: 'Choose Enviornment')
   }
 }
