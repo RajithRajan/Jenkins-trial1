@@ -10,7 +10,14 @@ pipeline {
 
     stage('Publish') {
       steps {
+        writeFile(file: 'outputfile.txt', text: 'testing the write function')
         archiveArtifacts './*'
+      }
+    }
+
+    stage('') {
+      steps {
+        build 'firstjob'
       }
     }
 
