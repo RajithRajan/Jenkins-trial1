@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('SettingParm') {
       steps {
-        if (params.DEPLOY_TO == null) {
+        if (${params.DEPLOY_TO} == null) {
           params.DEPLOY_TO = 'DEV'
         }  
         echo "Deploying to: ${params.DEPLOY_TO}"
