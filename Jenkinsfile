@@ -28,7 +28,7 @@ pipeline {
 
     stage('Trigger') {
       steps {
-        build 'firstjob'
+        build 'JobTrigger/Deploy'
       }
     }
 
