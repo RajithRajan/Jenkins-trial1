@@ -11,11 +11,11 @@ pipeline {
     stage('Publish') {
       steps {
         writeFile(file: 'outputfile.txt', text: 'testing the write function')
-        archiveArtifacts './*'
+        archiveArtifacts 'outputfile.txt'
       }
     }
 
-    stage('') {
+    stage('Trigger') {
       steps {
         build 'firstjob'
       }
