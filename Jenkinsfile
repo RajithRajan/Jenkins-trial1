@@ -1,10 +1,14 @@
 pipeline {
   agent any
+  parameters {
+    choice(name: 'DEPLOY_TO:', choices: ['Dev', 'ST', 'Prod'], description: 'Choose Enviornment')
+  }
+  
   stages {
     stage('SettingParm') {
       steps {
-        bat 'echo \'hello\''
-        input(message: 'Provide an build number', id: 'buildnr01', ok: 'Thanks')
+        echo "Deploying to: ${params.DEPLOY_TO}"
+        input(message: 'Proceed with deploying to ${params.DEPLOY_TO}',, ok: 'Continue')
       }
     }
 
