@@ -28,7 +28,7 @@ pipeline {
 
     stage('Trigger') {
       steps {
-        build job 'JobTrigger/Deploy', parameters [string(name: 'DEPLOY_TO', value: "${params.DEPLOY_TO}")]
+        build job 'JobTrigger/Deploy' parameters [string(name: 'DEPLOY_TO', value: "${params.DEPLOY_TO}")]
       }
     }
 
