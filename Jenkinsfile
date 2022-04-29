@@ -3,8 +3,11 @@ pipeline {
   stages {
     stage('SettingParm') {
       steps {
+        if (params.DEPLOY_TO == null) {
+          params.DEPLOY_TO = 'DEV'
+        }  
         echo "Deploying to: ${params.DEPLOY_TO}"
-        input(message: 'Proceed with deploying to ${params.DEPLOY_TO}', ok: 'Continue')
+        input(message: "Proceed with deploying to ${params.DEPLOY_TO}", ok: 'Continue')
       }
     }
 
