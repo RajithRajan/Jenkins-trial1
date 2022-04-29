@@ -3,7 +3,14 @@ pipeline {
   stages {
     stage('SettingParm') {
       steps {
-        sh 'echo \'hello\''
+        bat 'echo \'hello\''
+        input(message: 'Provide an build number', id: 'buildnr01', ok: 'Thanks')
+      }
+    }
+
+    stage('Publish') {
+      steps {
+        archiveArtifacts './*'
       }
     }
 
